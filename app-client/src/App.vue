@@ -1,16 +1,19 @@
 <template>
   <div id="app">
    <app-nav></app-nav>
+   <app-search></app-search>
   </div>
 </template>
 
 <script>
-import AppNav from './components/core/AppNav'
+import AppNav from './components/core/AppNav';
+import AppSearch from './components/core/AppSearch'
 
 export default {
   name: 'App',
   components: {
-    AppNav
+    AppNav,
+    AppSearch
   }
 }
 </script>
