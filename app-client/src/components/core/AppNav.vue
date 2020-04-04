@@ -1,54 +1,75 @@
 <template>
   <nav>
-    <div id="mySidenav" class="sidenav" :style="{width : width}">
+    <div class="sidenav" :style="{width : sideWidth}">
       <a href="#" class="closebtn" @click="closeNav">&times;</a>
       <a href="#">Profile Details</a>
       <a href="#">My Adds</a>
       <a href="#">Chats</a>
-      <a href="#">About</a>
+      <a href="#">About Us</a>
     </div>
-    <span @click="openNav">&#9776; Profile</span>
-    <span>
-      <a href="#">New Add</a>
-    </span>
-    <span>
-      <a href="#">About</a>
-    </span>
-    <span>
-      <a href="#">Contacts</a>
-    </span>
+
+    <div class="main-nav">
+      <span>
+        <a @click="openNav" href="#">
+          <img src="user.png" /> Profile
+        </a>
+        <a href="#">
+          <img src="plus.png" /> New Add
+        </a>
+      </span>
+      <span>
+        <img src="/logo.png" alt />
+      </span>
+      <span>
+        <a href="#">
+          <img src="about.png" /> About Us
+        </a>
+        <a href="#">
+          <img src="phone.png" /> Contacts
+        </a>
+      </span>
+    </div>
   </nav>
 </template>
 
 <script>
 export default {
   data: function() {
-    return { width: "0px" };
+    return { sideWidth: "0px" };
   },
   methods: {
     openNav() {
-      this.width = "250px";
+      this.sideWidth = "250px";
     },
     closeNav() {
-      this.width = "0px";
+      this.sideWidth = "0px";
     }
   }
 };
 </script>
 
 <style  scoped>
+ a img {
+ width: 22px;
+}
 nav {
-  border: 1px solid black;
-  background: #2c73d2;
+  background: #165bb4;
+  height: 70px;
 }
 
 span {
-  font-size: 30px;
+  font-size: 25px;
   cursor: pointer;
+  height: 70px;
 }
 
-a{
-      text-decoration: none;
+a {
+  text-decoration: none;
+  line-height: 70px;
+}
+
+a:visited {
+  color: black;
 }
 
 .sidenav {
@@ -74,6 +95,25 @@ a{
 
 .sidenav a:hover {
   color: #f1f1f1;
+}
+
+.main-nav {
+  -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.42);
+  -moz-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.42);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.42);
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-nav a {
+  margin: 10px;
+  padding: 24px 5px;
+  color: white;
+  font-size: 23px;
+}
+
+.main-nav a:hover {
+  background: rgb(50, 107, 182);
 }
 
 .sidenav .closebtn {
