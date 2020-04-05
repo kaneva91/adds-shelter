@@ -21,12 +21,10 @@
         <img src="/logo.png" alt />
       </span>
       <span>
-        <a href="#">
-          <img src="about.png" /> About Us
-        </a>
-        <a href="#">
+       <router-link to="/about" > <img src="about.png" /> About Us</router-link>
+        <router-link to="/contacts">
           <img src="phone.png" /> Contacts
-        </a>
+        </router-link>
       </span>
     </div>
   </nav>

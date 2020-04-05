@@ -2,6 +2,7 @@
   <div id="app">
    <app-nav></app-nav>
    <app-search></app-search>
+      <router-view></router-view>
   </div>
 </template>
 
@@ -13,7 +14,8 @@ export default {
   name: 'App',
   components: {
     AppNav,
-    AppSearch
+    AppSearch,
+    
   }
 }
 </script>
