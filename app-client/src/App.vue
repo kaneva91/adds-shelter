@@ -1,7 +1,12 @@
 <template>
   <div id="app">
    <app-nav></app-nav>
+    <div>
+     <a href="#">Login</a> |
+       <a href="#">Login</a>
+   </div>
    <app-search></app-search>
+  
       <router-view></router-view>
   </div>
 </template>
