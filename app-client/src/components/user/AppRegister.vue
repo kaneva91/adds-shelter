@@ -73,10 +73,11 @@
       />
 
       <label for="rePassword">
-        <b :class="{'error-msg' : $v.rePassword.$error}">Repeat Password
-           <template v-if="$v.rePassword.$error">
+        <b :class="{'error-msg' : $v.rePassword.$error}">
+          Repeat Password
+          <template v-if="$v.rePassword.$error">
             <span v-if="!$v.rePassword.sameAs" class="error">don't match!</span>
-           </template>
+          </template>
         </b>
       </label>
       <input
@@ -92,8 +93,8 @@
 
     <div class="container" style="background-color:#f1f1f1">
       <span class="psw">
-        Forgot
-        <a href="#">password?</a>
+        Already have an account? Go to
+        <router-link to="/login">Login</router-link>.
       </span>
     </div>
   </form>
@@ -128,24 +129,11 @@ export default {
     };
   },
   validations: {
-    firstName: {
-      required
-    },
-    lastName: {
-      required
-    },
-    email: {
-      required,
-      emailPattern
-    },
-    password: {
-      required,
-      minLength: minLength(6),
-      maxLength: maxLength(20)
-    },
-    rePassword: {
-      sameAs: sameAs("password")
-    }
+    firstName: { required },
+    lastName: { required },
+    email: { required, emailPattern },
+    password: { required, minLength: minLength(6), maxLength: maxLength(20) },
+    rePassword: {sameAs: sameAs("password")}
   },
 
   methods: {
@@ -154,7 +142,6 @@ export default {
         lastName = this.lastName,
         email = this.email,
         password = this.password;
-      console.log(firstName, lastName, email, password);
 
       axios
         .post("http://localhost:9999/api/user/register", {
@@ -163,8 +150,8 @@ export default {
           email,
           password
         })
-        .then(res => console.log(res.data))
-        .catch(err => console.log(err));
+        .then(() => this.$router.push("/login"))
+        .catch(() => console.log("Something went wrong"));
     }
   }
 };
