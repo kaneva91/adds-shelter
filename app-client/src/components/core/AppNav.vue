@@ -18,13 +18,11 @@
         </a>
       </span>
       <span>
-        <img src="/logo.png" alt />
+        <img class="logo" src="/logo.png" alt="Logo" />
       </span>
       <span>
-       <router-link to="/about" > <img src="about.png" /> About Us</router-link>
-        <router-link to="/contacts">
-          <img src="phone.png" /> Contacts
-        </router-link>
+        <router-link to="/Login">Login</router-link>
+        <router-link to="/register">Register</router-link>
       </span>
     </div>
   </nav>
@@ -47,23 +45,27 @@ export default {
 </script>
 
 <style  scoped>
- a img {
- width: 22px;
+a img {
+  width: 20px;
+}
+
+.logo {
+  height: 60px;
 }
 nav {
   background: #165bb4;
-  height: 70px;
+  height: 60px;
 }
 
 span {
   font-size: 25px;
   cursor: pointer;
-  height: 70px;
+  height: 60px;
 }
 
 a {
   text-decoration: none;
-  line-height: 70px;
+  line-height: 60px;
 }
 
 a:visited {
@@ -105,9 +107,9 @@ a:visited {
 
 .main-nav a {
   margin: 10px;
-  padding: 24px 5px;
+  padding: 18px 5px;
   color: white;
-  font-size: 23px;
+  font-size: 20px;
 }
 
 .main-nav a:hover {
