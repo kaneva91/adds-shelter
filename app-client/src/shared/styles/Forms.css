@@ -76,6 +76,14 @@ span.psw {
   animation: animatezoom 0.6s;
 }
 
+.error-msg{
+  color: red;
+  font-style: italic;
+  font-size: 14px;
+  text-align: right;
+}
+
+
 @-webkit-keyframes animatezoom {
   from {
     -webkit-transform: scale(0);
