@@ -3,8 +3,8 @@ import VueRouter from 'vue-router';
 import AppMain from './components/AppMain';
 import AppAbout from './components/AppAbout';
 import AppContacts from './components/AppContacts';
-import AppLogin from './components/AppLogin';
-import AppRegister from './components/AppRegister';
+import AppLogin from './components/user/AppLogin';
+import AppRegister from './components/user/AppRegister';
 
 
 const router = new VueRouter({

@@ -37,6 +37,6 @@ export default {
 
 
 <style scoped>
-@import url('../shared/styles/Forms.css');
+@import url('../../shared/styles/Forms.css');
 
 </style>

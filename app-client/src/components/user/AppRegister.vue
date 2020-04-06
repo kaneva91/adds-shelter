@@ -43,6 +43,7 @@
 
 
 <script>
+
 import axios from "axios";
 export default {
   name: "AppRegister",
@@ -75,6 +76,6 @@ export default {
 
 
 <style scoped>
-@import url('../shared/styles/Forms.css');
+@import url('../../shared/styles/Forms.css');
 
 </style>
