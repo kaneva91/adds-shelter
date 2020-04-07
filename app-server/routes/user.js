@@ -10,6 +10,8 @@ router.post('/login', controllers.user.post.login);
  router.post('/logout', controllers.user.post.logout);
 
 router.get('/:id', controllers.user.get);
+
+router.delete('/:id', controllers.user.delete);
 /*
 router.put('/:id', controllers.user.put);
     
@@ -17,7 +19,7 @@ router.put('/add/:id', controllers.user.add);
 
 router.get('/get/:id', controllers.user.getCartItems);
 
-router.delete('/:id', controllers.user.delete);
+
 
 router.put('/deleteCart/:id', controllers.user.deleteCart);
  */

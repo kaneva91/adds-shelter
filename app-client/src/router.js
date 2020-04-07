@@ -5,6 +5,7 @@ import AppAbout from './components/AppAbout';
 import AppContacts from './components/AppContacts';
 import AppLogin from './components/user/AppLogin';
 import AppRegister from './components/user/AppRegister';
+import AppProfile from './components/user/AppProfile';
 
 
 const router = new VueRouter({
@@ -30,6 +31,10 @@ const router = new VueRouter({
       {
         path: '/register',
         component: AppRegister 
+      },
+      {
+        path: '/profile',
+        component: AppProfile 
       },
       
       

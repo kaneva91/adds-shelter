@@ -63,8 +63,9 @@ export default {
     },
     logoutHandler() {
       userService.methods.logout().then(() => {
+        console.log('Ok')
         authStore.clearUser();
-        this.$router.push("/");
+       this.$router.push("/about");
       });
     }
   }
