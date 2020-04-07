@@ -91,7 +91,7 @@
       <button :disabled="$v.$invalid">Register</button>
     </div>
 
-    <div class="container" style="background-color:#f1f1f1">
+    <div class="container" >
       <span class="psw">
         Already have an account? Go to
         <router-link to="/login">Login</router-link>.

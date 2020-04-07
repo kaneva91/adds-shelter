@@ -1,6 +1,8 @@
 <template>
   <form class="modal-content animate" @submit.prevent="loginHandler">
-    <div class="imgcontainer"></div>
+    <div class="imgcontainer">
+      <img src="login_avatar.png" alt="Avatar" class="avatar" />
+    </div>
 
     <div class="container">
       <label for="email">
@@ -34,15 +36,20 @@
         v-model="password"
         @blur="$v.password.$touch"
       />
-
-      <button :disabled="$v.$invalid">Login</button>
+         <button :disabled="$v.$invalid">Login</button>
+      <div class="container">
+        <span class="psw">
+         Don't have an account yet? Go to
+          <router-link to="/register">Register</router-link>.
+        </span>
+      </div>
     </div>
+ 
   </form>
 </template>
 
 
 <script>
-
 import { validationMixin } from "vuelidate";
 import { required } from "vuelidate/lib/validators";
 import userService from "../mixins/user-service";

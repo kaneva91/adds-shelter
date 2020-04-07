@@ -83,6 +83,7 @@ a img {
 nav {
   background: #165bb4;
   height: 60px;
+  min-width: 600px;
 }
 
 span {
