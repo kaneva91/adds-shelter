@@ -102,7 +102,6 @@
 
 
 <script>
-import axios from "axios";
 import { validationMixin } from "vuelidate";
 import {
   required,
@@ -111,6 +110,7 @@ import {
   sameAs,
   helpers
 } from "vuelidate/lib/validators";
+import userService from "../mixins/user-service";
 
 const emailPattern = helpers.regex(
   "emailPattern",
@@ -118,7 +118,7 @@ const emailPattern = helpers.regex(
 );
 export default {
   name: "AppRegister",
-  mixins: [validationMixin],
+  mixins: [validationMixin, userService],
   data: function() {
     return {
       firstName: "",
@@ -133,7 +133,7 @@ export default {
     lastName: { required },
     email: { required, emailPattern },
     password: { required, minLength: minLength(6), maxLength: maxLength(20) },
-    rePassword: {sameAs: sameAs("password")}
+    rePassword: { sameAs: sameAs("password") }
   },
 
   methods: {
@@ -143,15 +143,8 @@ export default {
         email = this.email,
         password = this.password;
 
-      axios
-        .post("http://localhost:9999/api/user/register", {
-          firstName,
-          lastName,
-          email,
-          password
-        })
-        .then(() => this.$router.push("/login"))
-        .catch(() => console.log("Something went wrong"));
+      userService.methods.register(firstName,lastName,email,password)
+      .then(() => this.$router.push('/login'))
     }
   }
 };

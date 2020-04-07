@@ -2,10 +2,17 @@
   <nav>
     <div class="sidenav" :style="{width : sideWidth}">
       <a href="#" class="closebtn" @click="closeNav">&times;</a>
-      <a href="#">Profile Details</a>
-      <a href="#">My Adds</a>
-      <a href="#">Chats</a>
-      <a href="#">About Us</a>
+      <template v-if="user">
+        <router-link to="/profile">Profile Details</router-link>
+        <router-link to="/adds">My Adds</router-link>
+        <router-link to="/chats">Chats</router-link>
+        <a @click="logoutHandler">Logout</a>
+      </template>
+      <template v-else>
+        <router-link to="/login">Login</router-link>
+        <router-link to="/register">Register</router-link>
+      </template>
+      <router-link to="/about">About Us</router-link>
     </div>
 
     <div class="main-nav">
@@ -13,25 +20,39 @@
         <a @click="openNav" href="#">
           <img src="user.png" /> Profile
         </a>
-        <a href="#">
+        <router-link to="/adds/create">
           <img src="plus.png" /> New Add
-        </a>
+        </router-link>
       </span>
       <span>
         <img class="logo" src="/logo.png" alt="Logo" />
       </span>
       <span>
-        <router-link to="/Login">Login</router-link>
-        <router-link to="/register">Register</router-link>
+        <template v-if="!user">
+          <router-link to="/login">Login</router-link>
+          <router-link to="/register">Register</router-link>
+        </template>
+        <template v-else>
+          <a @click="logoutHandler">Logout</a>
+        </template>
       </span>
     </div>
   </nav>
 </template>
 
 <script>
+import authStore from "../store/auth";
+import userService from "../mixins/user-service";
+
 export default {
+  //mixins: [userService],
   data: function() {
     return { sideWidth: "0px" };
+  },
+  computed: {
+    user() {
+      return !!authStore.user;
+    }
   },
   methods: {
     openNav() {
@@ -39,6 +60,9 @@ export default {
     },
     closeNav() {
       this.sideWidth = "0px";
+    },
+    logoutHandler() {
+      userService.methods.logout().then(res => console.log(res));
     }
   }
 };

@@ -7,10 +7,10 @@ router.post('/register', controllers.user.post.register);
 
 router.post('/login', controllers.user.post.login);
 
-/* router.post('/logout', controllers.user.post.logout);
+ router.post('/logout', controllers.user.post.logout);
 
 router.get('/:id', controllers.user.get);
-
+/*
 router.put('/:id', controllers.user.put);
     
 router.put('/add/:id', controllers.user.add); 
