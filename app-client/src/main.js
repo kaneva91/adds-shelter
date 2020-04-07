@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 
 import router from './router';
 import axios from 'axios';
+import authStore from './components/store/auth';
 
 axios.interceptors.request.use(
   function (config) {
@@ -18,10 +19,16 @@ axios.interceptors.request.use(
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
 
-
-new Vue({
+ new Vue({
   render: h => h(App),
   router
 }).$mount('#app')
-/* 
-axios.get('http://localhost:9999/api/auth') */
+
+axios.get('http://localhost:9999/api/auth')
+  .then(res => {
+    if (res.status === 200 && res.data._id) {
+      authStore.setUser(res.data);
+    }
+  }).catch(() => {
+    
+  })
