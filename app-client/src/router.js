@@ -7,6 +7,8 @@ import AppLogin from './components/user/AppLogin';
 import AppRegister from './components/user/AppRegister';
 import AppProfile from './components/user/AppProfile';
 
+import userStore from './components/store/auth'
+
 
 const router = new VueRouter({
   mode: 'history',
@@ -34,12 +36,22 @@ const router = new VueRouter({
       },
       {
         path: '/profile',
-        component: AppProfile 
+        component: AppProfile,
+        meta: { requiresAuth : true}
       },
-      
-      
-   
+      {
+        path: '/adds',
+        component: AppProfile,
+        meta: { requiresAuth : true}
+      },
   ]
 });
+
+router.beforeEach((to, from, next)=>{
+  if(to.meta.requiresAuth && !userStore.user){
+    next('/login')
+  }
+  next()
+})
 
 export default router;
