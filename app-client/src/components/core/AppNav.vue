@@ -45,7 +45,7 @@ import authStore from "../store/auth";
 import userService from "../mixins/user-service";
 
 export default {
-  //mixins: [userService],
+  mixins: [userService],
   data: function() {
     return { sideWidth: "0px" };
   },
@@ -62,7 +62,10 @@ export default {
       this.sideWidth = "0px";
     },
     logoutHandler() {
-      userService.methods.logout().then(res => console.log(res));
+      userService.methods.logout().then(() => {
+        authStore.clearUser();
+        this.$router.push("/");
+      });
     }
   }
 };
