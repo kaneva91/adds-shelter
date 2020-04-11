@@ -77,23 +77,24 @@ a img {
 }
 
 .logo {
-  height: 60px;
+  height: 55px;
 }
+
 nav {
   background: #165bb4;
-  height: 60px;
+  height: 55px;
   min-width: 600px;
 }
 
 span {
   font-size: 25px;
   cursor: pointer;
-  height: 60px;
+  height: 55px;
 }
 
 a {
   text-decoration: none;
-  line-height: 60px;
+  line-height: 50px;
 }
 
 a:visited {

@@ -28,9 +28,8 @@ export default {
   
 <style scoped>
 .search {
-  border: 1px solid black;
   max-width: 80%;
-  height: 50px;
+  height: 40px;
   min-width: 500px;
   margin: 20px auto;
   padding: 10px 10px;
@@ -58,13 +57,13 @@ select {
 
 input[type="text"],
 select {
-  height: 34px;
+  height: 30px;
 }
 
 .search-btn {
   width: 100px;
   margin-right: 20px;
   margin-left: 10px;
-  height: 34px;
+  height: 30px;
 }
 </style>
