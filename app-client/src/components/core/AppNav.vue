@@ -4,7 +4,7 @@
       <a href="#" class="closebtn" @click="closeNav">&times;</a>
       <template v-if="user">
         <router-link to="/profile">Profile Details</router-link>
-        <router-link to="/adds">My Adds</router-link>
+        <router-link to="/ads">My Ads</router-link>
         <router-link to="/chats">Chats</router-link>
         <a @click="logoutHandler">Logout</a>
       </template>

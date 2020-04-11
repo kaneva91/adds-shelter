@@ -6,7 +6,8 @@ import AppContacts from './components/AppContacts';
 import AppLogin from './components/user/AppLogin';
 import AppRegister from './components/user/AppRegister';
 import AppProfile from './components/user/AppProfile';
-import AppCreateAdd from './components/adds/AppCreateAdd'
+import AppCreateAd from './components/ads/AppCreateAd';
+import AppAdsList from './components/ads/AppAdsList';
 
 import authStore from './components/store/auth'
 
@@ -42,10 +43,17 @@ const router = new VueRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/ads',
+      name : 'my-ads',
+      meta: { requiresAuth: true },
+      component : AppAdsList
+    },
+    {
       path: '/ads/create',
       meta: { requiresAuth: true },
-      component : AppCreateAdd
+      component : AppCreateAd
     },
+   
   ]
 });
 
