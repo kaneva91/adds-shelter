@@ -28,6 +28,7 @@ axios.get('http://localhost:9999/api/auth')
   .then(res => {
     if (res.status === 200 && res.data._id) {
       authStore.setUser(res.data);
+      console.log('auth')
     }
   }).catch(() => {
     

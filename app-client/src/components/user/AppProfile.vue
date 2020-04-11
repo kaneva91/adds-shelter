@@ -1,8 +1,25 @@
 <template>
   <section class="wrapper">
-    Profile
+    <h1> Profile Detals </h1>
+    <div>
+        <button class="delete-btn" @click="deleteHandler">Delete Profile</button>
+    </div>
+    <!-- <form>
+      <label for="firstName">
+        First Name 
+        <input :value="userData.firstName" type="text"/>
+      </label>
+          <label for="firstName">
+        Last Name 
+        <input :value="userData.lastName" type="text"/>
+      </label>
+
+        <label for="firstName">
+        First Name 
+        <input :value="userData.email" type="text"/>
+            </label>
+    </form> -->
     {{userData}}
-    <button @click="deleteHandler">Delete</button>
   </section>
 </template>
 
@@ -15,7 +32,7 @@ export default {
   mixins: [userService],
   data: function() {
     return {
-      userId: authStore.user.id,
+      userId: authStore.user._id ,
       userData: null
     };
   },
@@ -37,5 +54,11 @@ export default {
 <style scoped>
 .wrapper{
   border : 1px solid black;
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.delete-btn{
+  background-color: red;
 }
 </style>

@@ -7,7 +7,8 @@ import AppLogin from './components/user/AppLogin';
 import AppRegister from './components/user/AppRegister';
 import AppProfile from './components/user/AppProfile';
 
-import userStore from './components/store/auth'
+import authStore from './components/store/auth'
+
 
 
 const router = new VueRouter({
@@ -15,43 +16,46 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      component: AppMain 
+      component: AppMain
     },
     {
-        path: '/about',
-        component: AppAbout 
-      },
-      {
-        path: '/contacts',
-        component: AppContacts 
-      },
+      path: '/about',
+      component: AppAbout
+    },
+    {
+      path: '/contacts',
+      component: AppContacts
+    },
 
-      {
-        path: '/login',
-        component: AppLogin 
-      },
-      {
-        path: '/register',
-        component: AppRegister 
-      },
-      {
-        path: '/profile',
-        component: AppProfile,
-        meta: { requiresAuth : true}
-      },
-      {
-        path: '/adds',
-        component: AppProfile,
-        meta: { requiresAuth : true}
-      },
+    {
+      path: '/login',
+      component: AppLogin
+    },
+    {
+      path: '/register',
+      component: AppRegister
+    },
+    {
+      path: '/profile',
+      component: AppProfile,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/adds',
+      component: AppProfile,
+      meta: { requiresAuth: true }
+    },
   ]
 });
 
-router.beforeEach((to, from, next)=>{
-  if(to.meta.requiresAuth && !userStore.user){
-    next('/login')
+ router.beforeEach((to, from, next)=>{
+  if(to.meta.requiresAuth && !authStore.user){
+    console.log('guard')
+    next('/')
   }
+ 
+  
   next()
-})
+}) 
 
 export default router;
