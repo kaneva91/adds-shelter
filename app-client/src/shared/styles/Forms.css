@@ -1,78 +1,3 @@
-/* Full-width input fields */
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid rgb(112, 107, 107);
-  box-sizing: border-box;
-}
-
-/* Set a style for all buttons */
-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-/* Center the image and position the close button */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-  position: relative;
-}
-
-img.avatar {
-  width: 25%;
- 
-}
-
-.container {
-  padding: 0px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-  padding-top: 60px;
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  max-width:500px; /* Could be more or less, depending on screen size */
-  padding: 60px;
-  padding-top: 0px;
-  -webkit-box-shadow: 9px 0px 28px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 9px 0px 28px 0px rgba(0,0,0,0.75);
-box-shadow: 9px 0px 28px 0px rgba(0,0,0,0.75);
-}
 
 /* Add Zoom Animation */
 .animate {
@@ -111,8 +36,5 @@ box-shadow: 9px 0px 28px 0px rgba(0,0,0,0.75);
   span.psw {
     display: block;
     float: none;
-  }
-  .cancelbtn {
-    width: 100%;
   }
 }
