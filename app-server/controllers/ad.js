@@ -19,7 +19,7 @@ module.exports = {
         create: (req, res, next) => {
             const userId = req.params.id;
             const { title, imageUrl, category, price, description } = req.body;
-            models.Ad.create({ title, imageUrl, category, price, description })
+            models.Ad.create({ title, imageUrl, category, price, description, creatorId : userId})
                 .then((createdAdd) => {
                     models.User.updateOne({ _id: userId }, { $push: { ads: createdAdd } })
                         .then(res => console.log(res))

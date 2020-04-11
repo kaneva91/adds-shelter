@@ -28,7 +28,7 @@ module.exports = {
             .catch(err => console.log(err))
     },
 
-    add: (req, res, next) => {
+  /*   add: (req, res, next) => {
         const userId = req.params.id
         const item = req.body;
         models.User.updateOne({ _id: userId }, { $push: { cart: item } })
@@ -49,12 +49,14 @@ module.exports = {
         models.User.updateOne({ _id: userId }, { cart: [] })
             .then(resp =>{
                 console.log(resp); res.send(resp)})
-    },
+    }, */
 
     delete: (req, res, next) => {
         const id = req.params.id;
         models.User.deleteOne({ _id: id })
-            .then((removedUser) => res.send(removedUser))
+            .then((removedUser) => {
+                models.Ad.deleteMany({creatorId : id}).then(a=>console.log(a))
+                res.send(removedUser)})
             .catch(next)
     },
 

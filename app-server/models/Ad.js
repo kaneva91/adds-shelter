@@ -25,6 +25,9 @@ const adSchema = new Schema({
         type: String,
         required: true
     },
+    creatorId: {
+        type: String
+    }
 });
 
 module.exports = new Model('Ad', adSchema);
