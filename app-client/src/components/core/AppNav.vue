@@ -18,10 +18,10 @@
     <div class="main-nav">
       <span>
         <a @click="openNav" href="#">
-          <img src="user.png" /> Profile
+          <img src="/user.png" /> Profile
         </a>
-        <router-link to="/adds/create">
-          <img src="plus.png" /> New Add
+        <router-link to="/ads/create" >
+          <img src="/plus.png" /> New Ad
         </router-link>
       </span>
       <span>

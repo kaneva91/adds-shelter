@@ -4,7 +4,7 @@ const saltRounds = 10;
 
 const Schema = mongoose.Schema;
 const Model = mongoose.model;
-const { String, Number, Boolean, ObjectId } = Schema.Types;
+const { String, ObjectId } = Schema.Types;
 
 const userSchema = new Schema({
 
@@ -28,10 +28,10 @@ const userSchema = new Schema({
         required: true
     },
     
-   /*  cart: [{
+    ads: [{
         type: Schema.Types.ObjectId,
-        ref: 'Product'
-    }] */
+        ref: 'Ad'
+    }] 
 
   
 });

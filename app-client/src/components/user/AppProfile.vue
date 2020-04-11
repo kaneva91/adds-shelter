@@ -37,6 +37,7 @@ export default {
     };
   },
   created() {
+    console.log(this.userId)
     userService.methods
       .getProfileDetails(this.userId)
       .then(resp => (this.userData = resp.data));
@@ -45,7 +46,9 @@ export default {
     deleteHandler() {
       userService.methods
         .deleteProfile(this.userId)
-        .then(() => this.$router.push('/'));
+        .then(() => {
+          authStore.clearUser()
+          this.$router.push('/')});
     }
   }
 };
