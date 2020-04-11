@@ -1,11 +1,6 @@
 
 import VueRouter from 'vue-router';
 import AppMain from './components/AppMain';
-import AppAbout from './components/AppAbout';
-import AppContacts from './components/AppContacts';
-import AppLogin from './components/user/AppLogin';
-import AppRegister from './components/user/AppRegister';
-import AppProfile from './components/user/AppProfile';
 import AppCreateAd from './components/ads/AppCreateAd';
 import AppAdsList from './components/ads/AppAdsList';
 
@@ -22,24 +17,23 @@ const router = new VueRouter({
     },
     {
       path: '/about',
-      component: AppAbout
-    },
+      component: () => import('./components/AppAbout') 
+    }, 
     {
       path: '/contacts',
-      component: AppContacts
+      component: () => import('./components/AppContacts')  
     },
-
     {
       path: '/login',
-      component: AppLogin
-    },
+      component: () => import('./components/user/AppLogin') 
+    }, 
     {
       path: '/register',
-      component: AppRegister
+      component: () => import('./components/user/AppRegister') 
     },
     {
       path: '/profile',
-      component: AppProfile,
+      component: () => import('./components/user/AppProfile') ,
       meta: { requiresAuth: true },
     },
     {
