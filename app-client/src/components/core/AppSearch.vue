@@ -12,7 +12,9 @@
       </select>
 
       <!-- <button class="search-btn">Search  >></button> -->
-      <button class="search-btn"><span>Search </span></button>
+      <button class="search-btn">
+        <span>Search</span>
+      </button>
     </form>
   </section>
 </template>
@@ -35,7 +37,6 @@ export default {
   margin: 20px auto;
   padding: 10px 10px;
   background: #111;
- 
 }
 
 form {
@@ -64,7 +65,6 @@ select {
   padding-left: 15px;
 }
 
-
 .search-btn {
   line-height: 20px;
   background-color: black;
@@ -75,17 +75,17 @@ select {
   border-radius: 5px;
   transition: 0.5s;
   height: 40px;
-  width:20%;
+  width: 20%;
   color: white;
-   margin-top: -9px;
-    transition: all 0.5s;
-     cursor: pointer;
+  margin-top: -9px;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 
-.search-btn:active{
-   transform: translateY(4px);
-   color: black;
-   background-color: white;
+.search-btn:active {
+  transform: translateY(4px);
+  color: black;
+  background-color: white;
 }
 
 .search-btn span {
@@ -96,7 +96,7 @@ select {
 }
 
 .search-btn span:after {
-  content: '\00bb';
+  content: "\00bb";
   position: absolute;
   opacity: 0;
   top: 0;
@@ -112,5 +112,4 @@ select {
   opacity: 1;
   right: 0;
 }
-
 </style>

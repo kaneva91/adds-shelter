@@ -36,9 +36,9 @@
         v-model="password"
         @blur="$v.password.$touch"
       />
-         <button :disabled="$v.$invalid">Login</button>
-      <div class="container">
-        <span class="psw">
+         <button  class="button"   :disabled="$v.$invalid">Login</button>
+      <div class="redirect-info">
+        <span>
          Don't have an account yet? Go to
           <router-link to="/register">Register</router-link>.
         </span>

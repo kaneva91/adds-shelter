@@ -88,11 +88,11 @@
         @blur="$v.rePassword.$touch"
       />
 
-      <button :disabled="$v.$invalid">Register</button>
+      <button class="button" :disabled="$v.$invalid">Register</button>
     </div>
 
-    <div class="container" >
-      <span class="psw">
+    <div class="redirect-info">
+      <span>
         Already have an account? Go to
         <router-link to="/login">Login</router-link>.
       </span>
