@@ -36,15 +36,14 @@
         v-model="password"
         @blur="$v.password.$touch"
       />
-         <button  class="button"   :disabled="$v.$invalid">Login</button>
+      <button class="button" :disabled="$v.$invalid">Login</button>
       <div class="redirect-info">
         <span>
-         Don't have an account yet? Go to
+          Don't have an account yet? Go to
           <router-link to="/register">Register</router-link>.
         </span>
       </div>
     </div>
- 
   </form>
 </template>
 

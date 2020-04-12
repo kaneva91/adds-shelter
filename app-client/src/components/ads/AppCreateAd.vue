@@ -7,7 +7,7 @@
     </label>
     <label>
       ImageUrl
-      <input type="text" v-model="imageUrl" />
+      <input type="file" @change="selectFileHandler($event)" />
     </label>
     <label>
       Price
@@ -22,18 +22,38 @@
 </template>
 
 <script>
+import axios from 'axios';
 import adsService from '../mixins/ads-service';
 export default {
   data: function() {
     return {
       title: "",
       category : "OPTION 1",
-      imageUrl: "",
+      file: null,
+      imageUrl : '',
       price: "",
       description: ""
     };
   },
   methods: {
+    selectFileHandler(event){
+        this.file = event.target.files[0]
+       let formData = new FormData();
+ 
+    formData.append("file", this.file)
+      formData.append("api_key",'');
+    formData.append("upload_preset", 'kl2kx2pt');
+
+    axios
+    .post(`https://api.cloudinary.com/v1_1/dfposmfqk/upload/`, formData)
+    .then((result) => {
+        this.imageUrl=result.data.url;
+    })
+    .catch((err) => {
+        console.log(err);
+    })    
+    },
+
     createAdHanler() {
       const{
         title,

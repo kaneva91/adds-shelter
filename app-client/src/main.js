@@ -8,13 +8,18 @@ import authStore from './components/store/auth';
 
 axios.interceptors.request.use(
   function (config) {
-    config.withCredentials = true;
+    if(config.url.includes('http://localhost:9999/api/')){
+      config.withCredentials = true;
+    }
+   
+   //
+   
     return config;
   },
   function (error) {
     return new Promise.reject(error)
   }
-)
+) 
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);

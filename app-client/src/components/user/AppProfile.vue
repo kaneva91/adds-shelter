@@ -1,10 +1,10 @@
 <template>
   <section class="wrapper">
     <h1> Profile Detals </h1>
-    <div>
-        <button class="delete-btn" @click="deleteHandler">Delete Profile</button>
+    <div class='delete-btn-wrapper'>
+        <button class="delete" @click="deleteHandler">Delete Profile</button>
     </div>
-    <!-- <form>
+    <form>
       <label for="firstName">
         First Name 
         <input :value="userData.firstName" type="text"/>
@@ -18,8 +18,7 @@
         First Name 
         <input :value="userData.email" type="text"/>
             </label>
-    </form> -->
-    {{userData}}
+    </form> 
   </section>
 </template>
 
@@ -49,6 +48,7 @@ export default {
         .then(() => {
           authStore.clearUser()
           this.$router.push('/')});
+
     }
   }
 };
@@ -59,9 +59,25 @@ export default {
   border : 1px solid black;
   max-width: 70%;
   margin: 0 auto;
+   transition: 1s;
+    left: 0;
 }
 
-.delete-btn{
+.delete-btn-wrapper{
+  border: 1px solid black;
+}
+
+.delete{
   background-color: red;
 }
+
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
 </style>

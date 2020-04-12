@@ -143,8 +143,9 @@ export default {
         email = this.email,
         password = this.password;
 
-      userService.methods.register(firstName,lastName,email,password)
-      .then(() => this.$router.push('/login'))
+      userService.methods
+        .register(firstName, lastName, email, password)
+        .then(() => this.$router.push("/login"));
     }
   }
 };

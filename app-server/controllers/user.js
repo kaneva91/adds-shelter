@@ -58,7 +58,7 @@ module.exports = {
                 models.Ad.deleteMany({creatorId : id}).then(a=>console.log(a))
                 res.send(removedUser)})
             .catch(next)
-    },
+       },
 
     post: {
         register: (req, res, next) => {
