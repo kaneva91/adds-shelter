@@ -1,16 +1,18 @@
 <template>
-    <div>
-        Main
-    </div>
+  <div>Main {{ads}}</div>
 </template>
 
 <script>
-
+import adService from "./mixins/ads-service";
 export default {
-    import  adsService  from '../mixins/'
- mixins: []
- 
-   
-}
-
+  mixins: [adService],
+  data: function() {
+    return {
+      ads: null
+    };
+  },
+  created() {
+    this.loadAllAds().then(resp => (this.ads = resp.data));
+  }
+};
 </script>

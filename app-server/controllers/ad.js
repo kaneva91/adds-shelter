@@ -8,6 +8,9 @@ module.exports = {
               const {ads}= resp[0]
                 res.send(ads)
             })
+        },
+        getAllAds : (req, res, next) =>{
+            models.Ad.find().then(resp => res.send(resp))
         }
     },
 

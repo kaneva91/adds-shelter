@@ -20,6 +20,10 @@ const adService = {
         return axios
         .get(`${ mainUrl }/${ authStore.user._id}`)
 
+    },
+    loadAllAds(){
+      return axios
+      .get(`${mainUrl}`)
     }
 
 }
