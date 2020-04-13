@@ -62,7 +62,7 @@ export default {
       this.sideWidth = "0px";
     },
     logoutHandler() {
-      userService.methods.logout().then(() => {
+      this.logout().then(() => {
         authStore.clearUser();
        this.$router.push("/about");
       });

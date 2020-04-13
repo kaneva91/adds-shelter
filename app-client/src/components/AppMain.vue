@@ -7,7 +7,8 @@
 <script>
 
 export default {
- 
+    import  adsService  from '../mixins/'
+ mixins: []
  
    
 }

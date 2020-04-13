@@ -72,7 +72,7 @@ export default {
     loginHandler() {
       const email = this.email,
         password = this.password;
-      userService.methods.login(email, password).then(res => {
+      this.login(email, password).then(res => {
         authStore.setUser(res.data);
         this.$router.push("/");
       });
