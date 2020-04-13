@@ -27,13 +27,19 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    imageUrl :{
+        type : String,
+        default : ''
+    },
     
     ads: [{
         type: Schema.Types.ObjectId,
         ref: 'Ad'
-    }] 
-
-  
+    }],
+    favourites :[{
+        type: Schema.Types.ObjectId,
+        ref: 'Ad'
+    }],
 });
 
 userSchema.methods = {
