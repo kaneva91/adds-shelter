@@ -31,4 +31,8 @@ export default {
   padding: 0;
   font-family: "Lato", sans-serif;
 }
+
+#app{
+  background-color:rgb(214, 216, 218)
+}
 </style>

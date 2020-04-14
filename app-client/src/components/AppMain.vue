@@ -1,5 +1,6 @@
 <template>
   <div class="main-wrapper">
+    <h1>Last added advertisements...</h1>
    <app-ad-card v-for="(ad, z) in ads" :key="z" :ad="ad"></app-ad-card>
 
   </div>
@@ -26,7 +27,6 @@ export default {
 
 <style scoped>
  .main-wrapper{
-   border : 1px solid black;
-   padding: 30px 80px;;
+   padding: 30px 180px;;
  }
 </style>

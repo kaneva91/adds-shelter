@@ -81,7 +81,7 @@ a img {
 }
 
 nav {
-  background: #165bb4;
+  background: #002F34;
   height: 55px;
   min-width: 600px;
 }
@@ -142,7 +142,7 @@ a:visited {
 }
 
 .main-nav a:hover {
-  background: rgb(50, 107, 182);
+  background: rgb(0, 66, 73)
 }
 
 .sidenav .closebtn {
