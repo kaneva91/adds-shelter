@@ -13,17 +13,17 @@
               </div>
               <div>
                 <span class="label">Last Name :</span>
-                <span  class="label-data">{{userData.lastName}}</span>
+                <span class="label-data">{{userData.lastName}}</span>
               </div>
               <div>
                 <span class="label">Email :</span>
-                <span  class="label-data">{{userData.email}}</span>
+                <span class="label-data">{{userData.email}}</span>
               </div>
             </div>
 
             <div class="col-40">
-               <button >Back to home</button>
-             <button @click="deleteHandler">Delete Profile</button>
+              <button>Back to home</button>
+              <button @click="deleteHandler">Delete Profile</button>
             </div>
           </div>
         </div>
@@ -52,10 +52,17 @@ export default {
   },
   methods: {
     deleteHandler() {
-      userService.methods.deleteProfile(this.userId).then(() => {
-        authStore.clearUser();
-        this.$router.push("/");
-      });
+      
+      if (
+        confirm(
+          "If you delete your profile, your ads will be deleted, too. Are you sure?"
+        )
+      ) {
+        userService.methods.deleteProfile(this.userId).then(() => {
+          authStore.clearUser();
+          this.$router.push("/");
+        });
+      }
     }
   }
 };
@@ -68,18 +75,18 @@ export default {
 
 section {
   max-width: 800px;
-  margin : 50px auto;
+  margin: 50px auto;
   padding: 40px;
 }
-h1{
+h1 {
   margin-bottom: 30px;
 }
 
-button{
+button {
   border-radius: 6px;
   margin: 10px auto;
   margin-right: 20px;
-  width : 200px;
+  width: 200px;
   height: 40px;
   display: block;
 }

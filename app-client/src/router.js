@@ -1,7 +1,6 @@
 
 import VueRouter from 'vue-router';
 import AppMain from './components/AppMain';
-import AppCreateAd from './components/ads/AppCreateAd';
 import AppAdsList from './components/ads/AppAdsList';
 
 import authStore from './components/store/auth'
@@ -44,8 +43,9 @@ const router = new VueRouter({
     },
     {
       path: '/ads/create',
+      component: () => import('./components/ads/AppCreateAd') ,
       meta: { requiresAuth: true },
-      component : AppCreateAd
+      
     },
    
   ]
@@ -53,7 +53,6 @@ const router = new VueRouter({
 
  router.beforeEach((to, from, next)=>{
   if(to.meta.requiresAuth && !authStore.user){
-    console.log('guard')
     next('/')
   }
  

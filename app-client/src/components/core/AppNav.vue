@@ -20,7 +20,7 @@
         <a @click="openNav" href="#">
           <img src="/user.png" /> Profile
         </a>
-        <router-link to="/ads/create" >
+        <router-link to="/ads/create">
           <img src="/plus.png" /> New Ad
         </router-link>
       </span>
