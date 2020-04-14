@@ -11,15 +11,17 @@ axios.interceptors.request.use(
     if(config.url.includes('http://localhost:9999/api/')){
       config.withCredentials = true;
     }
-   
-   //
-   
     return config;
   },
   function (error) {
     return new Promise.reject(error)
   }
 ) 
+
+Vue.filter('priceFix', function (value) {
+ return value.toFixed(2)
+})
+
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
