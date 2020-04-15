@@ -46,11 +46,16 @@ module.exports = {
             })
                 .catch(next)
         },
+        removeFromFavourites: (res, req, next) => {
+          /*   const userId = req.params.id;*/
+            const { adId } = req.body; 
+            console.log('REMOVE')
+            console.log(adId)
+        },
 
         deleteAd: (req, res, next) => {
             const userId = req.params.id;
             const { adId } = req.body;
-            console.log(adId)
             models.Ad.find({ _id: adId }).then(ad => {
                 models.User.updateOne({ _id: userId }, { $pull: { ads: { $in: ad } } })
                     .then(res => {
