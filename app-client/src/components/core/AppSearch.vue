@@ -1,17 +1,12 @@
 <template>
   <section class="search">
     <form @submit.prevent="searchHandler">
-      <input class="search-input" type="text" placeholder="Search..." />
+      <input class="search-input" type="text" placeholder="Search..." v-model="search"/>
 
-      <select>
-        <option value="null" selected>Category...</option>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-        <option value="4">Option 4</option>
-      </select>
-
-      <!-- <button class="search-btn">Search  >></button> -->
+      <AppCategories @category="selectedCategoryHandler">
+   
+  </AppCategories>
+    
       <button class="search-btn">
         <span>Search</span>
       </button>
@@ -20,11 +15,25 @@
 </template>
 
 <script>
+import AppCategories from '../shared/AppCategories';
+
 export default {
+  data : function(){
+    return {
+      search: null,
+      category : null
+    }
+  },
   methods: {
+    selectedCategoryHandler(emitedCategory){
+      this.category = emitedCategory;
+    },
     searchHandler() {
       console.log("search");
     }
+  },
+  components : {
+    AppCategories
   }
 };
 </script>

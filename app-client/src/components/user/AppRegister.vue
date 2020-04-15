@@ -3,7 +3,6 @@
     <div class="imgcontainer">
       <img src="register_avatar.png" alt="Avatar" class="avatar" />
     </div>
-
     <div class="container">
       <label for="firstName">
         <b :class="{'error-msg' : $v.firstName.$error}">

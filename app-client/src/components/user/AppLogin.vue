@@ -53,6 +53,7 @@ import { validationMixin } from "vuelidate";
 import { required } from "vuelidate/lib/validators";
 import userService from "../mixins/user-service";
 import authStore from "../store/auth";
+//import vars from '../store/vars'
 
 export default {
   mixins: [validationMixin, userService],
