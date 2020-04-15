@@ -30,6 +30,19 @@ module.exports = {
                 })
                 .catch(next)
         },
+        addToFavourites:(req, res, next)=>{
+            const userId = req.params.id;
+            const {adId} = req.body;
+            const ad = null;
+             models.Ad.find({_id : adId}).then(favouriteAd=> {
+                 console.log(favouriteAd)
+                 models.User.updateOne({ _id: userId }, { $push: { favourites: favouriteAd } })
+                        .then(res => console.log(res))
+                    res.send(createdAdd)
+                })
+                .catch(next)
+    
+        }
 
     }
 

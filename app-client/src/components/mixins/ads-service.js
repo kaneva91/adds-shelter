@@ -24,6 +24,9 @@ const adService = {
     loadAllAds(){
       return axios
       .get(`${mainUrl}`)
+    },
+    addToFavourites(adId){
+      return axios.post(`${ mainUrl }/favourites/${ authStore.user._id}`,{adId})
     }
 
 }
