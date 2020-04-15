@@ -5,10 +5,10 @@ const utils = require('../utils');
 module.exports = {
     get: (req, res, next) => {
         const id = req.params.id;
-        models.User.find({ _id : id})
+        models.User.find({ _id: id })
             .then(data => {
-                const {_id, username, firstName, lastName, email } = data[0]; //password is prevent to be sent to the front-end
-                userDetails = {_id : id, username, firstName, lastName, email};
+                const { _id, username, firstName, lastName, email } = data[0]; 
+                userDetails = { _id: id, username, firstName, lastName, email };
                 return userDetails;
             })
             .then((user) => res.send(user))
@@ -21,44 +21,24 @@ module.exports = {
         const query = { firstName, lastName, email }
         models.User.findOneAndUpdate({ _id: id }, query, { new: true })
             .then((response) => {
-                const {_id,  firstName, lastName, email } = response;
-                const id=_id
-                const   updatedUser = {id, firstName, lastName, email};
-                res.send(updatedUser)})
+                const { _id, firstName, lastName, email } = response;
+                const id = _id
+                const updatedUser = { id, firstName, lastName, email };
+                res.send(updatedUser)
+            })
             .catch(err => console.log(err))
     },
 
-  /*   add: (req, res, next) => {
-        const userId = req.params.id
-        const item = req.body;
-        models.User.updateOne({ _id: userId }, { $push: { cart: item } })
-            .then(resp => res.send(resp))
-    },
-
-    getCartItems: (req, res, next) => {
-        const userId = req.params.id;
-        models.User.find({ _id: userId }).populate('cart')
-            .then(data => {
-                const { cart } = data[0]
-                res.send(cart)
-            })
-    },
-    deleteCart: (req, res, next) => {
-
-        const userId = req.params.id;
-        models.User.updateOne({ _id: userId }, { cart: [] })
-            .then(resp =>{
-                console.log(resp); res.send(resp)})
-    }, */
 
     delete: (req, res, next) => {
         const id = req.params.id;
         models.User.deleteOne({ _id: id })
             .then((removedUser) => {
-                models.Ad.deleteMany({creatorId : id}).then(a=>console.log(a))
-                res.send(removedUser)})
+                models.Ad.deleteMany({ creatorId: id }).then(a => console.log(a))
+                res.send(removedUser)
+            })
             .catch(next)
-       },
+    },
 
     post: {
         register: (req, res, next) => {
@@ -78,7 +58,7 @@ module.exports = {
                         return;
                     }
                     const token = utils.jwt.createToken({ id: user._id });
-                    const { email, firstName, lastName, _id} = user;
+                    const { email, firstName, lastName, _id } = user;
                     const currentUser = { _id, email, firstName, lastName };
                     res.cookie(config.authCookieName, token).send(currentUser);
                 })
@@ -93,7 +73,7 @@ module.exports = {
             console.log('-'.repeat(100));
             models.TokenBlacklist.create({ token })
                 .then(() => {
-                    res.clearCookie(config.authCookieName).send({logoutSuccess:true});
+                    res.clearCookie(config.authCookieName).send({ logoutSuccess: true });
                 })
                 .catch(next);
         },

@@ -16,7 +16,7 @@ export default {
     };
   },
   created() {
-    adsService.methods.getAdds().then(resp => (this.userAds = resp.data));
+    adsService.methods.getAdds().then(resp => (this.userAds = resp.data.reverse()));
   },
   components : {
     AppAdCard
@@ -26,6 +26,6 @@ export default {
 
 <style scoped>
 .user-ads-wrapper{
-  padding: 30px 180px;;
+  padding: 30px 180px;
 }
 </style>

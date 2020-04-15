@@ -15,7 +15,9 @@ const adService = {
           description
         })
     },
-
+    deleteAd(adId){
+      return axios.post(`${mainUrl}/delete/${authStore.user._id}`, { adId })
+    },
     getAdds() {
       return axios
         .get(`${mainUrl}/${authStore.user._id}`)
@@ -28,6 +30,7 @@ const adService = {
     addToFavourites(adId) {
       return axios.post(`${mainUrl}/favourites/${authStore.user._id}`, { adId })
     },
+   
     search(title, category) {
       return axios.post(`${mainUrl}/search`, {title, category})
     }

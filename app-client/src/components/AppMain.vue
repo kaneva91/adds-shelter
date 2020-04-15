@@ -17,7 +17,7 @@ export default {
     };
   },
   created() {
-    this.loadAllAds().then(resp => (this.ads = resp.data));
+    this.loadAllAds().then(resp => (this.ads = resp.data.reverse()));
   },
   components : {
     AppAdCard
