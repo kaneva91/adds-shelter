@@ -41,9 +41,15 @@ module.exports = {
                     res.send(createdAdd)
                 })
                 .catch(next)
-    
+        },
+        search: (req, res, next) =>{
+            const{title, category} = req.body;
+            let query = {title};
+            if (category !== '' ){
+                query = {...query, category}
+            }
+            models.Ad.find(query).then(resp=>res.send(resp))
+            .catch(next)
         }
-
-    }
-
+    },
 };

@@ -1,7 +1,7 @@
 <template>
   <section class="search">
     <form @submit.prevent="searchHandler">
-      <input class="search-input" type="text" placeholder="Search..." v-model="search"/>
+      <input class="search-input" type="text" placeholder="Search..." v-model="searchInput  "/>
 
       <AppCategories @category="selectedCategoryHandler">
    
@@ -16,12 +16,14 @@
 
 <script>
 import AppCategories from '../shared/AppCategories';
+import adService from '../mixins/ads-service'
 
 export default {
+  mixins : [adService],
   data : function(){
     return {
-      search: null,
-      category : null
+      searchInput: null,
+      category : ''
     }
   },
   methods: {
@@ -29,7 +31,12 @@ export default {
       this.category = emitedCategory;
     },
     searchHandler() {
-      console.log("search");
+      if(this.searchInput){
+        this.search(this.searchInput, this.category).then(res => console.log(res))
+         console.log("search");
+      }
+      
+     
     }
   },
   components : {

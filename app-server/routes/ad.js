@@ -7,5 +7,6 @@ router.get('/:id', controllers.ad.get.getUserAds);
 router.get('/', controllers.ad.get.getAllAds);
 router.post('/create/:id', controllers.ad.post.create);
 router.post('/favourites/:id', controllers.ad.post.addToFavourites);
+router.post('/search', controllers.ad.post.search);
 
 module.exports = router;
