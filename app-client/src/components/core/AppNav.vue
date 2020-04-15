@@ -5,14 +5,15 @@
       <template v-if="user">
         <router-link to="/profile">Profile Details</router-link>
         <router-link to="/ads">My Ads</router-link>
-        <router-link to="/chats">Chats</router-link>
+        <router-link to="/favourites">My Favourites</router-link>
         <a @click="logoutHandler">Logout</a>
       </template>
       <template v-else>
         <router-link to="/login">Login</router-link>
         <router-link to="/register">Register</router-link>
+          <router-link to="/about">About Us</router-link>
       </template>
-      <router-link to="/about">About Us</router-link>
+    
     </div>
 
     <div class="main-nav">
@@ -34,6 +35,7 @@
         </template>
         <template v-else>
           <a @click="logoutHandler">Logout</a>
+          <router-link to="/about">About Us</router-link>
         </template>
       </span>
     </div>
@@ -64,7 +66,7 @@ export default {
     logoutHandler() {
       this.logout().then(() => {
         authStore.clearUser();
-       this.$router.push("/about");
+       this.$router.push("/");
       });
     }
   }

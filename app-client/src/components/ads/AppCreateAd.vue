@@ -69,7 +69,6 @@ export default {
         });
     },
     selectedCategoryHandler(e) {
-      console.log(e);
       this.category = e;
     },
 

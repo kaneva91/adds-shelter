@@ -30,7 +30,10 @@ const adService = {
     addToFavourites(adId) {
       return axios.post(`${mainUrl}/favourites/${authStore.user._id}`, { adId })
     },
-   
+    getFavourites(){
+        return axios.get(`${mainUrl}/favourites/${authStore.user._id}`)
+    },
+   //detete from favourites
     search(title, category) {
       return axios.post(`${mainUrl}/search`, {title, category})
     }
