@@ -4,9 +4,8 @@
     <div class="get-started">
       <h3>Get Started</h3>
       <a routerLink="/">Home</a>
-      <a routerLink="/menu">Menu</a>
-      <a routerLink="/user/login">Login</a>
-      <a routerLink="/user/register">Register</a>
+      <a routerLink="/login">Login</a>
+      <a routerLink="/uregister">Register</a>
     </div>
     <div class="contacts">
       <h3>Contact us</h3>

@@ -11,13 +11,17 @@
           <AppCategories @category="selectedCategoryHandler" />
         </label>
         <label>
-          ImageUrl
+          Image:
           <input type="file" @change="selectFileHandler($event)" />
         </label>
       </label>
       <label>
-        Price
+        Price:
         <input type="text" v-model="price" />
+      </label>
+        <label>
+        Telephone: 
+        <input type="text" v-model="telephone" />
       </label>
     </div>
 
@@ -44,6 +48,7 @@ export default {
       file: null,
       imageUrl: "",
       price: "",
+      telephone : '',
       description: ""
     };
   },
@@ -73,9 +78,9 @@ export default {
     },
 
     createAdHanler() {
-      const { title, category, imageUrl, price, description } = this.$data;
+      const { title, category, imageUrl, price, telephone, description } = this.$data;
       adsService.methods
-        .create(title, category, imageUrl, price, description)
+        .create(title, category, imageUrl, price, telephone, description)
         .then(() => {
           this.$router.push("/ads");
         });
@@ -86,7 +91,6 @@ export default {
 
 <style scoped>
 form {
-  border: 1px solid black;
   padding: 20px 300px;
 }
 
@@ -115,6 +119,13 @@ input, select, textarea{
 textarea{
   width: 600px;
   height: 200px;
+}
+
+button{
+  width: 200px;
+  height: 30px;
+  margin: 0 auto;
+  display: block;
 }
 
 </style>

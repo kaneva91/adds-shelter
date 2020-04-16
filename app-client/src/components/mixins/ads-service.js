@@ -4,14 +4,14 @@ const mainUrl = 'http://localhost:9999/api/ads';
 
 const adService = {
   methods: {
-    create(title, category, imageUrl, price, description) {
-      console.log(authStore.user._id)
+    create(title, category, imageUrl, price, telephone, description) {
       return axios
         .post(`${mainUrl}/create/${authStore.user._id}`, {
           title,
           price,
           category,
           imageUrl,
+          telephone,
           description
         })
     },

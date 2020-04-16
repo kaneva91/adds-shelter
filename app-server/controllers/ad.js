@@ -11,7 +11,8 @@ module.exports = {
                 })
         },
         getAllAds: (req, res, next) => {
-            models.Ad.find().then(resp => res.send(resp))
+            models.Ad.find()
+            .then(resp => res.send(resp))
         },
         getFavourites: (req, res, next) => {
             const userId = req.params.id;
@@ -26,8 +27,8 @@ module.exports = {
     post: {
         create: (req, res, next) => {
             const userId = req.params.id;
-            const { title, imageUrl, category, price, description } = req.body;
-            models.Ad.create({ title, imageUrl, category, price, description, creatorId: userId })
+            const { title, imageUrl, category, price, telephone,  description } = req.body;
+            models.Ad.create({ title, imageUrl, category, price, telephone, description, creatorId: userId })
                 .then((createdAdd) => {
                     models.User.updateOne({ _id: userId }, { $push: { ads: createdAdd } })
                         .then(res => console.log(res))
@@ -46,11 +47,17 @@ module.exports = {
             })
                 .catch(next)
         },
-        removeFromFavourites: (res, req, next) => {
-          /*   const userId = req.params.id;*/
+        removeFromFavourites: (req, res, next) => {
+            const userId = req.params.id;
             const { adId } = req.body; 
-            console.log('REMOVE')
-            console.log(adId)
+            models.Ad.find({ _id: adId }).then(ad => {
+                models.User.updateOne({ _id: userId }, { $pull: { favourites: { $in: ad } } })
+                    .then(res => {
+                        models.Ad.deleteOne({ _id: adId }).then(resp => console.log(resp))
+                    })
+                res.send('ok')
+            })
+                .catch(next)
         },
 
         deleteAd: (req, res, next) => {
