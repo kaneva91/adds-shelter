@@ -22,8 +22,10 @@ export default {
   mixins : [adService],
   data : function(){
     return {
+     
       searchInput: null,
-      category : ''
+      category : '',
+      searchResult : null
     }
   },
   methods: {
@@ -32,8 +34,9 @@ export default {
     },
     searchHandler() {
       if(this.searchInput){
-        this.search(this.searchInput, this.category).then(res => console.log(res))
-         console.log("search");
+        this.search(this.searchInput, this.category).then(res => this.searchResult = res.data); 
+        //console.log(this.searchResult)
+        this.$emit('searchEmit', this.searchResult)
       }
       
      
